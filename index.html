@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>~*~ The Official $503 Homepage ~*~</title>
+<style>
+  :root{
+    --bg-deep: #050B2E;
+    --bg-mid: #0F1F5C;
+    --panel: #16234f;
+    --chrome-1: #ffffff;
+    --chrome-2: #b8c9e8;
+    --chrome-3: #4a7fe8;
+    --chrome-4: #14264f;
+    --led: #39FF14;
+    --gold: #FFD700;
+    --pink: #FF3EC8;
+    --btn-light: #8fb8ff;
+    --btn-dark: #0a1a4a;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0; padding: 0;
+    background-color: var(--bg-deep);
+    background-image:
+      radial-gradient(1.5px 1.5px at 15px 25px, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 55px 75px, #fff, transparent),
+      radial-gradient(1px 1px at 85px 15px, #cddcff, transparent),
+      radial-gradient(1px 1px at 120px 60px, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 150px 100px, #cddcff, transparent),
+      radial-gradient(1px 1px at 175px 35px, #fff, transparent);
+    background-repeat: repeat;
+    background-size: 220px 220px;
+    color: var(--chrome-1);
+    font-family: Verdana, Geneva, sans-serif;
+  }
+
+  a { color: var(--pink); }
+  a:visited { color: #c76ee0; }
+
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+  .headline, .chrome-text {
+    font-family: 'Arial Black', Impact, sans-serif;
+    background: linear-gradient(180deg,#ffffff 0%,#c9d8f5 12%,#6f9aed 32%,#2850a0 50%,#193a7a 62%,#a9c3f2 82%,#ffffff 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 2px 2px rgba(0,0,10,0.6));
+    letter-spacing: 0.01em;
+  }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+
+  /* MARQUEE */
+  .marquee-bar {
+    background: linear-gradient(180deg, #FFD700, #E0A800);
+    color: #3a1f00;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 3px solid #7a5200;
+    padding: 6px 0;
+  }
+  .marquee-track {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-left 22s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; padding-left: 12px; }
+  }
+  @keyframes scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+
+  /* CONSTRUCTION RIBBON */
+  .stripe-bar {
+    background: repeating-linear-gradient(45deg, #FFD700, #FFD700 14px, #1a1a1a 14px, #1a1a1a 28px);
+    text-align: center;
+    padding: 5px 0;
+  }
+  .stripe-bar span {
+    background: #1a1a1a;
+    color: var(--gold);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 3px 14px;
+    border: 1px dashed var(--gold);
+  }
+
+  /* BEVEL PANEL / WIN95 STYLE */
+  .bevel-panel {
+    background: linear-gradient(180deg, var(--chrome-3), var(--chrome-4));
+    border-top: 2px solid var(--btn-light);
+    border-left: 2px solid var(--btn-light);
+    border-right: 2px solid var(--btn-dark);
+    border-bottom: 2px solid var(--btn-dark);
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.6);
+  }
+
+  .win-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: Verdana, sans-serif; font-weight: bold; font-size: 13px;
+    color: #fff; text-decoration: none;
+    padding: 8px 16px; cursor: pointer;
+    background: linear-gradient(180deg, #5c8ef0, #1e3a8a);
+    border-top: 2px solid var(--btn-light);
+    border-left: 2px solid var(--btn-light);
+    border-right: 2px solid var(--btn-dark);
+    border-bottom: 2px solid var(--btn-dark);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+  }
+  .win-btn:active {
+    border-top: 2px solid var(--btn-dark);
+    border-left: 2px solid var(--btn-dark);
+    border-right: 2px solid var(--btn-light);
+    border-bottom: 2px solid var(--btn-light);
+  }
+
+  /* NAV */
+  .navbar { padding: 10px 0; }
+  .navbar .wrap { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+
+  /* HERO */
+  header.hero { padding: 30px 0 20px; text-align: center; }
+  .logo-frame {
+    display: inline-block;
+    padding: 10px;
+    background: linear-gradient(135deg, #cddcff, #4a7fe8, #14264f);
+    border-radius: 16px;
+    box-shadow: 0 0 0 3px #050B2E, 0 0 0 6px var(--gold), 0 8px 24px rgba(0,0,0,0.6);
+  }
+  .logo-frame img { display: block; width: 180px; height: 180px; border-radius: 10px; }
+
+  .badge-new {
+    display: inline-block;
+    background: var(--gold);
+    color: #4a1f00;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 3px;
+    border: 1px solid #7a5200;
+    transform: rotate(-6deg);
+    margin-bottom: 10px;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .badge-new { animation: blink 1.1s steps(1) infinite; }
+  }
+  @keyframes blink { 50% { opacity: 0.35; } }
+
+  h1.title { font-size: clamp(38px, 9vw, 64px); margin: 16px 0 6px; }
+  p.tagline {
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    font-size: 17px; color: var(--chrome-2);
+    max-width: 480px; margin: 0 auto 20px;
+  }
+
+  .cta-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+
+  .addr-box {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #000; border: 2px inset #4a7fe8;
+    font-family: 'Courier New', monospace; font-size: 12px;
+    color: var(--led); padding: 8px 12px; max-width: 90%;
+  }
+  .addr-box span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .copy-btn {
+    background: #222; color: var(--led); border: 1px solid #444;
+    font-family: 'Courier New', monospace; font-size: 11px; padding: 4px 8px; cursor: pointer;
+  }
+
+  /* VISITOR COUNTER */
+  .counter-wrap { text-align: center; margin: 22px 0 6px; }
+  .counter-label { font-family: 'Courier New', monospace; font-size: 11px; color: var(--chrome-2); margin-bottom: 6px; }
+  .counter {
+    display: inline-flex; background: #000; border: 2px inset #666; padding: 4px;
+  }
+  .counter span {
+    display: inline-block; width: 20px; text-align: center;
+    background: #001a00; color: var(--led);
+    font-family: 'Courier New', monospace; font-weight: bold; font-size: 18px;
+    margin: 0 1px; text-shadow: 0 0 6px var(--led);
+  }
+
+  /* STATUS PANEL — styled as a Windows XP "Luna" window */
+  .status-panel { margin: 34px 0; }
+  .xp-window { border-radius: 8px 8px 4px 4px; overflow: hidden; box-shadow: 0 4px 18px rgba(0,0,0,0.55); }
+  .xp-titlebar {
+    background: linear-gradient(180deg, #4a9bff 0%, #1d5fd1 42%, #0f4cc2 50%, #1d5fd1 58%, #0047AB 100%);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 5px 6px 5px 10px;
+    font-family: Tahoma, Verdana, sans-serif; font-size: 12px; font-weight: bold;
+    color: #fff; text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  }
+  .xp-controls { display: flex; gap: 3px; }
+  .xp-btn {
+    width: 19px; height: 17px; display: inline-flex; align-items: center; justify-content: center;
+    background: linear-gradient(180deg, #4a90f0, #1a5fc0); border: 1px solid #0a3a8a; border-radius: 3px;
+    font-size: 10px; color: #fff; line-height: 1;
+  }
+  .xp-close { background: linear-gradient(180deg, #ff6f6f, #d02020); border-color: #8a0000; }
+  .status-body { background: #000; padding: 14px; border: 2px inset #4a7fe8; }
+  .status-row {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Courier New', monospace; font-size: 13px;
+    padding: 6px 4px; color: var(--chrome-1);
+  }
+  .led { width: 9px; height: 9px; border-radius: 50%; background: var(--led); box-shadow: 0 0 6px var(--led); flex-shrink: 0; }
+  .status-row .ok { margin-left: auto; color: var(--led); }
+
+  /* BOOT SCREEN — resolves on its own via CSS even if JS never runs */
+  .boot-screen {
+    position: fixed; inset: 0; z-index: 9999; background: #000;
+    display: flex; align-items: center; justify-content: center;
+    animation: bootHide 2.6s ease forwards;
+  }
+  .boot-logo {
+    font-family: 'Arial Black', Impact, sans-serif; font-size: 44px; text-align: center;
+    background: linear-gradient(180deg,#ffffff 0%,#c9d8f5 12%,#6f9aed 32%,#2850a0 50%,#193a7a 62%,#a9c3f2 82%,#ffffff 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 6px;
+  }
+  .boot-text { font-family: 'Courier New', monospace; color: #8fb8ff; font-size: 13px; text-align: center; margin-bottom: 22px; letter-spacing: 0.05em; }
+  .boot-bar { display: flex; gap: 3px; border: 2px inset #4a7fe8; padding: 4px; width: 220px; margin: 0 auto; }
+  .boot-bar span { flex: 1; height: 14px; background: #0a1a4a; animation: bootBlock 2.1s ease-in-out forwards; }
+  .boot-bar span:nth-child(1) { animation-delay: 0.00s; } .boot-bar span:nth-child(2) { animation-delay: 0.15s; }
+  .boot-bar span:nth-child(3) { animation-delay: 0.30s; } .boot-bar span:nth-child(4) { animation-delay: 0.45s; }
+  .boot-bar span:nth-child(5) { animation-delay: 0.60s; } .boot-bar span:nth-child(6) { animation-delay: 0.75s; }
+  .boot-bar span:nth-child(7) { animation-delay: 0.90s; } .boot-bar span:nth-child(8) { animation-delay: 1.05s; }
+  .boot-bar span:nth-child(9) { animation-delay: 1.20s; } .boot-bar span:nth-child(10) { animation-delay: 1.35s; }
+  .boot-skip { font-family: 'Courier New', monospace; color: #4a5a7a; font-size: 10px; margin-top: 18px; text-align: center; }
+  @keyframes bootBlock { 0% { background: #0a1a4a; } 50% { background: #3EC8FF; box-shadow: 0 0 6px #3EC8FF; } 100% { background: #3EC8FF; } }
+  @keyframes bootHide { 0%, 88% { opacity: 1; visibility: visible; } 100% { opacity: 0; visibility: hidden; pointer-events: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .boot-screen { animation: none; opacity: 0; visibility: hidden; pointer-events: none; }
+    .boot-bar span { animation: none; background: #3EC8FF; }
+  }
+
+  /* SECTIONS */
+  section { padding: 34px 0; }
+  .section-title {
+    text-align: center; font-size: clamp(24px,5vw,34px); margin-bottom: 26px;
+  }
+  hr.rainbow {
+    height: 4px; border: none; margin: 0 0 30px;
+    background: linear-gradient(90deg, red, orange, gold, green, blue, indigo, violet);
+  }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .step { padding: 16px; text-align: center; }
+  .step .num {
+    font-family: 'Courier New', monospace; font-weight: bold; font-size: 22px; color: var(--gold);
+  }
+  .step h3 { font-family: Verdana, sans-serif; font-size: 15px; margin: 8px 0; }
+  .step p { font-size: 13px; color: var(--chrome-2); line-height: 1.5; }
+
+  .tokenomics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; padding: 20px; }
+  .split-bar { display: flex; height: 34px; border: 2px inset #4a7fe8; overflow: hidden; }
+  .split-founder { background: repeating-linear-gradient(45deg,#3a4360,#3a4360 6px,#2a3350 6px,#2a3350 12px); }
+  .split-treasury { background: repeating-linear-gradient(45deg,var(--gold),var(--gold) 6px,#c99400 6px,#c99400 12px); }
+  .split-traders { background: repeating-linear-gradient(45deg,var(--led),var(--led) 6px,#1fae00 6px,#1fae00 12px); }
+  .legend-row { font-family: 'Courier New', monospace; font-size: 12px; margin-top: 8px; color: var(--chrome-2); }
+  .legend-row b { color: #fff; }
+
+  .stat-list { font-family: 'Courier New', monospace; font-size: 12px; background: #000; border: 2px inset #4a7fe8; padding: 10px; }
+  .stat-row { display: flex; justify-content: space-between; padding: 5px 4px; color: var(--led); }
+
+  /* WEBRING BUTTONS 88x31 */
+  .webring { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .btn88 {
+    width: 88px; height: 31px;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    font-family: 'Courier New', monospace; font-size: 9px; font-weight: bold; line-height: 1.15;
+    background: linear-gradient(180deg, #4a7fe8, #14264f);
+    color: #fff; text-decoration: none;
+    border-top: 2px solid var(--btn-light); border-left: 2px solid var(--btn-light);
+    border-right: 2px solid var(--btn-dark); border-bottom: 2px solid var(--btn-dark);
+  }
+
+  footer { text-align: center; padding: 30px 0 40px; }
+  .best-viewed { font-family: 'Courier New', monospace; font-size: 10px; color: var(--chrome-2); margin-bottom: 10px; }
+  .disclaimer { font-family: 'Times New Roman', serif; font-size: 11px; color: var(--chrome-2); max-width: 560px; margin: 14px auto 0; line-height: 1.6; }
+  .copyright { font-family: 'Courier New', monospace; font-size: 11px; color: var(--chrome-2); margin-top: 16px; }
+
+  .retro-banner {
+    text-align: center;
+    padding: 7px 12px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+  }
+  .banner-pink {
+    background: linear-gradient(180deg, #FF3EC8, #A8006B);
+    color: #fff; border-top: 3px solid #7a0050; border-bottom: 3px solid #7a0050;
+    text-shadow: 1px 1px 0 #4a0030;
+  }
+  .day-sun { background: linear-gradient(180deg, #FF8C42, #C43E00) !important; border-color: #7a2400 !important; }
+  .day-mon { background: linear-gradient(180deg, #3EC8FF, #0066A8) !important; border-color: #003a5c !important; }
+  .day-tue { background: linear-gradient(180deg, #B33EFF, #6A00A8) !important; border-color: #3a005c !important; }
+  .day-wed { background: linear-gradient(180deg, #9CFF3E, #4CAF00) !important; color: #0a2e00 !important; border-color: #2c5f00 !important; text-shadow: 1px 1px 0 rgba(255,255,255,0.5) !important; }
+  .day-thu { background: linear-gradient(180deg, #FFE93E, #C4A100) !important; color: #3a2f00 !important; border-color: #7a6300 !important; text-shadow: 1px 1px 0 rgba(255,255,255,0.5) !important; }
+  .day-fri { background: linear-gradient(180deg, #FF3EC8, #A8006B) !important; border-color: #7a0050 !important; }
+  .day-sat { background: linear-gradient(180deg, #FF3E3E, #A80000) !important; border-color: #7a0000 !important; }
+  .banner-green {
+    background: linear-gradient(180deg, #9CFF3E, #4CAF00);
+    color: #0a2e00; border-top: 3px solid #2c5f00; border-bottom: 3px solid #2c5f00;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+  }
+  .banner-flash {
+    background: repeating-linear-gradient(90deg, #FF0000, #FF0000 18px, #1a1a1a 18px, #1a1a1a 36px);
+    color: #FFD700; border-top: 3px solid #7a0000; border-bottom: 3px solid #7a0000;
+  }
+
+  @media (max-width: 600px) {
+    .steps { grid-template-columns: 1fr; }
+    .tokenomics-grid { grid-template-columns: 1fr; }
+  }
+
+  /* DESKTOP ICON EASTER EGG — purely decorative, triggers the popup below */
+  .desktop-icon {
+    position: fixed; bottom: 16px; left: 16px; z-index: 500;
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+    width: 76px; cursor: pointer; user-select: none; background: none; border: none; padding: 0;
+  }
+  .desktop-icon-glyph { font-size: 30px; background: rgba(0,0,0,0.25); border-radius: 6px; padding: 6px 10px; }
+  .desktop-icon-label {
+    font-family: 'Courier New', monospace; font-size: 10px; color: #fff;
+    background: rgba(0,0,50,0.6); padding: 1px 4px; text-align: center; line-height: 1.3;
+  }
+  .desktop-icon:hover .desktop-icon-label, .desktop-icon:focus-visible .desktop-icon-label { background: #0000AA; }
+
+  /* FAKE VIRUS POPUP — nostalgic recreation only, does nothing to your device */
+  .fake-virus-overlay { position: fixed; inset: 0; z-index: 9998; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; }
+  .fake-virus-overlay[hidden] { display: none; }
+  .fake-virus-window {
+    width: 340px; max-width: 90vw; background: #C0C0C0;
+    border: 2px solid; border-color: #fff #404040 #404040 #fff;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.6); font-family: Tahoma, Verdana, sans-serif;
+  }
+  .fake-virus-titlebar {
+    background: linear-gradient(180deg, #0a246a, #1084d0); color: #fff; font-size: 12px; font-weight: bold;
+    padding: 3px 4px 3px 8px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .fake-virus-close {
+    width: 16px; height: 14px; display: inline-flex; align-items: center; justify-content: center;
+    background: #C0C0C0; color: #000; border: 1px solid; border-color: #fff #404040 #404040 #fff;
+    font-size: 10px; cursor: pointer;
+  }
+  .fake-virus-body { display: flex; gap: 14px; padding: 18px 16px; align-items: center; }
+  .fake-virus-glyph { flex-shrink: 0; }
+  .pika-face {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #FFE55C, #FFC800);
+    position: relative; box-shadow: inset -4px -4px 8px rgba(0,0,0,0.15);
+  }
+  .pika-eye { position: absolute; width: 7px; height: 9px; background: #1a1a1a; border-radius: 50%; top: 20px; }
+  .pika-eye.left { left: 14px; } .pika-eye.right { right: 14px; }
+  .pika-cheek { position: absolute; width: 10px; height: 8px; background: #FF5F7A; border-radius: 50%; bottom: 14px; opacity: 0.85; }
+  .pika-cheek.left { left: 4px; } .pika-cheek.right { right: 4px; }
+  .fake-virus-text { font-size: 12px; color: #000; line-height: 1.5; }
+  .fake-virus-text p { margin: 0 0 8px; }
+  .fake-virus-note { font-size: 10px; color: #444; font-style: italic; }
+  .fake-virus-footer { display: flex; justify-content: center; padding: 0 16px 16px; }
+  .fake-virus-ok {
+    font-family: Tahoma, Verdana, sans-serif; font-size: 12px; background: #C0C0C0;
+    border: 2px solid; border-color: #fff #404040 #404040 #fff; padding: 5px 24px; cursor: pointer;
+  }
+  .fake-virus-ok:active { border-color: #404040 #fff #fff #404040; }
+</style>
+</head>
+<body>
+
+<div class="boot-screen" id="boot-screen" aria-hidden="true">
+  <div>
+    <div class="boot-logo">$503</div>
+    <div class="boot-text">STARTING $503...</div>
+    <div class="boot-bar">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="boot-skip">(click anywhere to skip)</div>
+  </div>
+</div>
+
+<div class="marquee-bar">
+  <span class="marquee-track">★☆★ WELCOME TO THE OFFICIAL $503 HOMEPAGE ★☆★ A COIN THAT BURNS EVERY TIME THE ROBOTS GO DOWN ★☆★ NOW LIVE ON SOLANA ★☆★ TELL YOUR FRIENDS, SIGN THE GUESTBOOK, BOOKMARK THIS PAGE ★☆★</span>
+</div>
+<div class="retro-banner" id="banner-weekly">LOADING...</div>
+<div class="retro-banner banner-pink" id="banner-1">🎉 LOADING TODAY IN HISTORY... 🎉</div>
+
+<nav class="navbar">
+  <div class="wrap">
+    <a class="win-btn" href="#" data-target="status">🖥️ STATUS</a>
+    <a class="win-btn" href="#" data-target="how">❓ HOW IT WORKS</a>
+    <a class="win-btn" href="#" data-target="tokenomics">💰 TOKENOMICS</a>
+    <a class="win-btn" href="#" data-target="links">🔗 LINKS</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="badge-new">✦ NEW! ✦</span>
+    <div class="logo-frame">
+      <img src="https://raw.githubusercontent.com/caramelcookiecutter/503/main/logo.png" alt="$503 logo" />
+    </div>
+    <h1 class="title headline">$503</h1>
+    <p class="tagline">✧･ﾟ A meme coin that burns every time AI goes down ﾟ･✧<br>Real outages. Real burns. 100% automated.</p>
+
+    <div class="cta-row">
+      <a class="win-btn" href="https://solscan.io/token/GEPa9WUhjfthcuXy7kjwpS3bn9YcpSpdXxkd1nt31Lgc" target="_blank" rel="noopener" title="Pool launching soon — view the token on Solscan for now">💸 POOL LAUNCHING SOON</a>
+      <a class="win-btn" href="https://solscan.io/token/GEPa9WUhjfthcuXy7kjwpS3bn9YcpSpdXxkd1nt31Lgc" target="_blank" rel="noopener">🔍 VIEW ON SOLSCAN</a>
+    </div>
+
+    <div class="addr-box">
+      <span id="mint-addr">GEPa9WUhjfthcuXy7kjwpS3bn9YcpSpdXxkd1nt31Lgc</span>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('mint-addr').textContent)">COPY</button>
+    </div>
+
+    <div class="counter-wrap">
+      <div class="counter-label">☆ YOU ARE VISITOR NUMBER ☆</div>
+      <div class="counter">
+        <span>0</span><span>0</span><span>0</span><span>4</span><span>9</span><span>2</span><span>0</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="status">
+  <div class="wrap">
+    <div class="status-panel">
+      <div class="xp-window">
+        <div class="xp-titlebar">
+          <span>🖥️ system_status.exe</span>
+          <span class="xp-controls">
+            <span class="xp-btn">_</span>
+            <span class="xp-btn">▢</span>
+            <span class="xp-btn xp-close">✕</span>
+          </span>
+        </div>
+      <div class="status-body">
+        <div class="status-row"><span class="led" id="chatgpt-led"></span> ChatGPT <span class="ok" id="chatgpt-status">[ CHECKING... ]</span></div>
+        <div class="status-row"><span class="led" id="claude-led"></span> Claude <span class="ok" id="claude-status">[ CHECKING... ]</span></div>
+        <div class="status-row"><span class="led" id="gemini-led"></span> Gemini <span class="ok" id="gemini-status">[ CHECKING... ]</span></div>
+        <div class="status-row"><span class="led" id="perplexity-led"></span> Perplexity <span class="ok" id="perplexity-status">[ CHECKING... ]</span></div>
+        <div class="status-row"><span class="led" style="background:#888;box-shadow:none;"></span> Grok <a href="https://status.x.ai" target="_blank" rel="noopener" class="ok" style="color:#8fb8ff;">[ SEE STATUS.X.AI ]</a></div>
+      </div>
+      <div style="font-family:'Courier New',monospace;font-size:10px;color:#6a7ba8;padding:8px 4px 0;text-align:center;">ChatGPT, Claude, Gemini &amp; Perplexity are monitored live. Grok has no public status API, so it's tracked separately.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rainbow" />
+
+<section id="how">
+  <div class="wrap">
+    <h2 class="section-title headline">❖ How It Works ❖</h2>
+    <div class="steps">
+      <div class="step bevel-panel">
+        <div class="num">01</div>
+        <h3>WATCHING</h3>
+        <p>Every 15 min, a script checks each provider's status page for trouble.</p>
+      </div>
+      <div class="step bevel-panel">
+        <div class="num">02</div>
+        <h3>LOGGING</h3>
+        <p>Outage start + end times get recorded automatically. No guesswork.</p>
+      </div>
+      <div class="step bevel-panel">
+        <div class="num">03</div>
+        <h3>BURNING</h3>
+        <p>Every Monday, treasury tokens burn based on that week's real outages.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rainbow" />
+<div class="retro-banner banner-green" id="banner-2">⭐ LOADING TODAY IN HISTORY... ⭐</div>
+
+<section id="tokenomics">
+  <div class="wrap">
+    <h2 class="section-title headline">❖ Tokenomics ❖</h2>
+    <div class="bevel-panel tokenomics-grid">
+      <div>
+        <div class="split-bar">
+          <div class="split-founder" style="width:20%"></div>
+          <div class="split-treasury" style="width:30%"></div>
+          <div class="split-traders" style="width:50%"></div>
+        </div>
+        <div class="legend-row">⬛ Founder — <b>20%</b></div>
+        <div class="legend-row">🟨 Treasury (burns) — <b>30%</b></div>
+        <div class="legend-row">🟩 Traders / liquidity — <b>50%</b></div>
+      </div>
+      <div class="stat-list">
+        <div class="stat-row"><span>TOTAL SUPPLY</span><span>1,000,000,000</span></div>
+        <div class="stat-row"><span>NETWORK</span><span>SOLANA</span></div>
+        <div class="stat-row"><span>BURN CADENCE</span><span>WEEKLY</span></div>
+        <div class="stat-row"><span>MINT AUTH</span><span>TREASURY</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rainbow" />
+<div class="retro-banner banner-flash" id="banner-3">💫 LOADING TODAY IN HISTORY... 💫</div>
+
+<section id="links">
+  <div class="wrap">
+    <h2 class="section-title headline">❖ Web Links ❖</h2>
+    <div class="webring">
+      <a class="btn88" href="https://solscan.io/token/GEPa9WUhjfthcuXy7kjwpS3bn9YcpSpdXxkd1nt31Lgc" target="_blank" rel="noopener" title="Pool launching soon">POOL<br>LAUNCHING</a>
+      <a class="btn88" href="https://solscan.io/token/GEPa9WUhjfthcuXy7kjwpS3bn9YcpSpdXxkd1nt31Lgc" target="_blank" rel="noopener">VIEW ON<br>SOLSCAN</a>
+      <a class="btn88" href="https://github.com/caramelcookiecutter/503/" target="_blank" rel="noopener">SOURCE ON<br>GITHUB</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="best-viewed">★ BEST VIEWED AT 800x600 ★ NETSCAPE NAVIGATOR 4.0+ RECOMMENDED ★</div>
+    <p class="disclaimer">$503 is an independent meme coin and is not affiliated with, endorsed by, or officially connected to OpenAI, Anthropic, Google, xAI, or Perplexity. Outage data is sourced from public status pages for entertainment and commentary purposes. This is not financial advice — $503 carries no guaranteed value or utility. Do your own research.</p>
+    <div class="copyright">© 2003-2026 $503 HOMEPAGE — MADE WITH NOTEPAD — LAST UPDATED TODAY</div>
+  </div>
+</footer>
+
+<button class="desktop-icon" id="pikachu-icon" aria-haspopup="dialog">
+  <span class="desktop-icon-glyph" aria-hidden="true">⚡</span>
+  <span class="desktop-icon-label">PikachuPokemon.exe</span>
+</button>
+
+<div class="fake-virus-overlay" id="pikachu-popup" role="dialog" aria-label="Nostalgic popup recreation" hidden>
+  <div class="fake-virus-window">
+    <div class="fake-virus-titlebar">
+      <span>⚠ PikachuPokemon.exe</span>
+      <span class="fake-virus-close" id="pikachu-close">✕</span>
+    </div>
+    <div class="fake-virus-body">
+      <div class="fake-virus-glyph" aria-hidden="true">
+        <div class="pika-face">
+          <div class="pika-eye left"></div>
+          <div class="pika-eye right"></div>
+          <div class="pika-cheek left"></div>
+          <div class="pika-cheek right"></div>
+        </div>
+      </div>
+      <div class="fake-virus-text">
+        <p>"Between millions of people around the world I found you. Don't forget to remember this day every time MY FRIEND!"</p>
+      </div>
+    </div>
+    <div class="fake-virus-footer">
+      <button class="fake-virus-ok" id="pikachu-ok">OK</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Pikachu virus popup — nostalgic recreation only, purely decorative
+  var pikaIcon = document.getElementById('pikachu-icon');
+  var pikaPopup = document.getElementById('pikachu-popup');
+  var pikaClose = document.getElementById('pikachu-close');
+  var pikaOk = document.getElementById('pikachu-ok');
+  function openPika() { if (pikaPopup) pikaPopup.hidden = false; }
+  function closePika() { if (pikaPopup) pikaPopup.hidden = true; }
+  if (pikaIcon) pikaIcon.addEventListener('click', openPika);
+  if (pikaClose) pikaClose.addEventListener('click', closePika);
+  if (pikaOk) pikaOk.addEventListener('click', closePika);
+
+  // Boot screen resolves on its own via CSS after ~2.6s regardless of JS.
+  // This just adds an optional click-to-skip.
+  var bootScreen = document.getElementById('boot-screen');
+  if (bootScreen) {
+    bootScreen.addEventListener('click', function () {
+      bootScreen.style.opacity = '0';
+      bootScreen.style.visibility = 'hidden';
+      bootScreen.style.pointerEvents = 'none';
+    });
+  }
+
+  // Gossip banner changes color by day of the week
+  var DAY_CLASSES = ['day-sun', 'day-mon', 'day-tue', 'day-wed', 'day-thu', 'day-fri', 'day-sat'];
+  var banner1 = document.getElementById('banner-1');
+  if (banner1) banner1.classList.add(DAY_CLASSES[new Date().getDay()]);
+
+  // Weekly rotating banner — original $503 takes on real formats from web
+  // banner-ad history (not reproductions of any company's actual ads),
+  // referencing: webdesignmuseum.org/exhibitions/web-banners-in-the-90s
+  var WEEKLY_BANNERS = [
+    { text: '👆 HAVE YOU EVER CLICKED YOUR MOUSE RIGHT HERE? YOU WILL. 👆 (welcome to $503)', cls: 'banner-flash' },
+    { text: '🖥️ $503 IS BEST VIEWED WITH ANY BROWSER, ANY WALLET, ANY VIBES 🖥️', cls: 'banner-green' },
+    { text: '⬇️ GET YOURSELF A SOLANA WALLET — DOWNLOAD PHANTOM TODAY! ⬇️', cls: 'banner-pink' },
+    { text: '💻 THIS SITE WAS MADE WITH NOTEPAD, CAFFEINE & PURE STUBBORNNESS 💻', cls: 'banner-flash' },
+    { text: '🚫 $503 JOINS THE CAMPAIGN AGAINST RUG PULLS — SAY NO TO SKETCHY LAUNCHES 🚫', cls: 'banner-green' },
+    { text: '🔗 PROUD MEMBER OF THE $503 WEBRING — CLICK A BUTTON, KEEP SURFING 🔗', cls: 'banner-pink' },
+    { text: '🔢 EVERY VISITOR COUNTS! CHECK OUR HIT COUNTER BELOW 🔢', cls: 'banner-flash' },
+    { text: '🐵 PUNCH THE MONKEY TO WIN A FREE IPOD... JUST KIDDING, THERE\'S NO MONKEY 🐵', cls: 'banner-green' }
+  ];
+  function getWeekIndex() {
+    var d = new Date();
+    var start = new Date(d.getFullYear(), 0, 1);
+    var days = Math.floor((d - start) / 86400000);
+    return Math.floor(days / 7) % WEEKLY_BANNERS.length;
+  }
+  var weeklyEl = document.getElementById('banner-weekly');
+  if (weeklyEl) {
+    var pick = WEEKLY_BANNERS[getWeekIndex()];
+    weeklyEl.textContent = pick.text;
+    weeklyEl.classList.add(pick.cls);
+  }
+
+  // "On this day" banners — pulls real birthdays for TODAY'S actual date from
+  // Wikipedia's public on-this-day feed. Works automatically for all 365 days,
+  // no manual updates needed. Falls back to generic text if unreachable.
+  var FALLBACK_BANNERS = [
+    "🎉 HAPPY BIRTHDAY TO EVERYONE BORN TODAY, WHOEVER YOU ARE!! 🎉",
+    "⭐ SOMEWHERE OUT THERE, TODAY IS SOMEBODY'S BIG DAY ⭐",
+    "💫 CHECK BACK LATER FOR TODAY'S CELEBRITY BIRTHDAYS 💫"
+  ];
+
+  function setBanners(list) {
+    ['banner-1', 'banner-2', 'banner-3'].forEach(function (id, i) {
+      var el = document.getElementById(id);
+      if (el) el.textContent = (list && list[i]) || FALLBACK_BANNERS[i];
+    });
+  }
+
+  var today = new Date();
+  var onThisDayUrl =
+    'https://en.wikipedia.org/api/rest_v1/feed/onthisday/births/' +
+    (today.getMonth() + 1) + '/' + today.getDate();
+
+  fetch(onThisDayUrl)
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
+      var births = (data && data.births) || [];
+      if (!births.length) { setBanners(null); return; }
+      births.sort(function (a, b) { return b.year - a.year; }); // most recent first
+      var picks = births.slice(0, 3).map(function (b) {
+        return '🎉 BORN TODAY IN HISTORY: ' + b.text + ' (' + b.year + ')! 🎉';
+      });
+      setBanners(picks);
+    })
+    .catch(function () { setBanners(null); });
+
+  document.querySelectorAll('.navbar a[data-target]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      var target = document.getElementById(link.getAttribute('data-target'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Pull real status from the same outage-log.json the weekly burn reads.
+  // If the fetch is blocked (e.g. by this page's embed host), fall back to a
+  // direct link instead of showing a broken-looking [UNKNOWN].
+  var STATUS_PAGES = {
+    chatgpt: 'https://status.openai.com',
+    claude: 'https://status.claude.com',
+    gemini: 'https://status.cloud.google.com',
+    perplexity: 'https://status.perplexity.com'
+  };
+
+  function showFallbackLink(key) {
+    var status = document.getElementById(key + '-status');
+    if (!status) return;
+    var a = document.createElement('a');
+    a.href = STATUS_PAGES[key];
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.className = 'ok';
+    a.style.color = '#8fb8ff';
+    a.textContent = '[ SEE STATUS PAGE ]';
+    status.replaceWith(a);
+  }
+
+  fetch('https://raw.githubusercontent.com/caramelcookiecutter/503/main/outage-log.json', { cache: 'no-store' })
+    .then(function (res) { return res.json(); })
+    .then(function (log) {
+      ['chatgpt', 'claude', 'gemini', 'perplexity'].forEach(function (key) {
+        var led = document.getElementById(key + '-led');
+        var status = document.getElementById(key + '-status');
+        if (!led || !status) return;
+        var incidents = (log[key] && log[key].incidents) || [];
+        var isDown = incidents.some(function (i) { return i.start && !i.end; });
+        if (isDown) {
+          led.style.background = '#FF3B3B';
+          led.style.boxShadow = '0 0 6px #FF3B3B';
+          status.textContent = '[ DOWN ]';
+          status.style.color = '#FF3B3B';
+        } else {
+          status.textContent = '[ OK ]';
+        }
+      });
+    })
+    .catch(function () {
+      ['chatgpt', 'claude', 'gemini', 'perplexity'].forEach(showFallbackLink);
+    });
+
+  // Real visitor counter — increments on every page load, no signup needed
+  fetch('https://api.countapi.xyz/hit/caramelcookiecutter-503/visits')
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
+      var digits = String(data.value).padStart(7, '0').split('');
+      var spans = document.querySelectorAll('.counter span');
+      digits.forEach(function (d, i) { if (spans[i]) spans[i].textContent = d; });
+    })
+    .catch(function () {
+      // leave the placeholder number if the counter service can't be reached
+    });
+</script>
+</body>
+</html>
