@@ -1,0 +1,12 @@
+{
+  "name": "solana-treasury-burn",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "create-token": "node create-token.js"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.95.0",
+    "@solana/spl-token": "^0.4.9"
+  }
+}
