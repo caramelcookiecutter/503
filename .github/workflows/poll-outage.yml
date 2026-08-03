@@ -1,0 +1,32 @@
+name: poll chatgpt status
+
+on:
+  schedule:
+    - cron: "*/15 * * * *" # every 15 minutes
+  workflow_dispatch:
+
+permissions:
+  contents: write # needed so this workflow can save outage-log.json back to the repo
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check ChatGPT status
+        run: node poll-status.js
+
+      - name: Save any changes
+        run: |
+          git config user.name "outage-bot"
+          git config user.email "actions@github.com"
+          git add outage-log.json
+          git diff --staged --quiet || git commit -m "update outage log"
+          git push
