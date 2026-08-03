@@ -1,0 +1,29 @@
+name: weekly burn
+
+on:
+  schedule:
+    - cron: "0 12 * * 1" # every Monday at 12:00 UTC
+  workflow_dispatch: # lets you click "Run workflow" on GitHub to test it by hand
+
+jobs:
+  burn:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Write treasury key from secret
+        run: echo "$TREASURY_SECRET_KEY" > treasury-keypair.json
+        env:
+          TREASURY_SECRET_KEY: ${{ secrets.TREASURY_SECRET_KEY }}
+
+      - name: Run weekly burn
+        run: node burn-weekly.js
