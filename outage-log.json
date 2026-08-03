@@ -1,4 +1,29 @@
 {
   "lastIndicator": "none",
-  "incidents": []
+  "incidents": [],
+  "chatgpt": {
+    "lastIndicator": "none",
+    "incidents": []
+  },
+  "claude": {
+    "lastIndicator": "none",
+    "incidents": []
+  },
+  "perplexity": {
+    "lastIndicator": "none",
+    "incidents": []
+  },
+  "gemini": {
+    "incidents": []
+  },
+  "grok": {
+    "lastGuid": "INC548339c6",
+    "incidents": [
+      {
+        "start": "2026-08-03T11:00:19.342Z",
+        "end": "2026-08-03T11:00:19.342Z",
+        "note": "RSS update detected (imprecise)"
+      }
+    ]
+  }
 }
