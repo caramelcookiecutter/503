@@ -8,12 +8,21 @@ function countRecentOutages() {
   if (!fs.existsSync(LOG_FILE)) return 0;
   const log = JSON.parse(fs.readFileSync(LOG_FILE, "utf8"));
   const cutoff = Date.now() - ONE_WEEK_MS;
-  return log.incidents.filter((i) => new Date(i.start).getTime() >= cutoff).length;
+
+  let total = 0;
+  for (const provider of Object.keys(log)) {
+    const incidents = log[provider]?.incidents || [];
+    const recent = incidents.filter((i) => i.start && new Date(i.start).getTime() >= cutoff);
+    console.log(`  ${provider}: ${recent.length} incident(s) this week`);
+    total += recent.length;
+  }
+  return total;
 }
 
 async function main() {
+  console.log("Checking outages across all monitored providers...");
   const count = countRecentOutages();
-  console.log(`Found ${count} ChatGPT outage(s) in the last 7 days.`);
+  console.log(`Found ${count} total outage(s) across all providers in the last 7 days.`);
 
   if (count === 0) {
     console.log("Nothing to burn this week.");
