@@ -5,8 +5,8 @@ import fs from "fs";
 
 // --- Fill these in ---
 const RPC = "https://api.mainnet-beta.solana.com";
-const MINT_ADDRESS = "PASTE_YOUR_TOKEN_MINT_ADDRESS_HERE";
-const METADATA_URI = "https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/metadata.json";
+const MINT_ADDRESS = "GEPa9WUhjfthcuXy7kjwpS3bn9YcpSpdXxkd1nt31Lgc";
+const METADATA_URI = "https://raw.githubusercontent.com/caramelcookiecutter/503/main/metadata.json";
 const TOKEN_NAME = "$503";
 const TOKEN_SYMBOL = "503";
 const DECIMALS = 9;
