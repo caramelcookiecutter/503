@@ -1,13 +1,26 @@
+import fs from "fs";
 import { burnFromTreasury } from "./burn-on-error.js";
 
-// TODO: swap this for your real weekly error count
-// (read it from a log file, a database, or wherever your app tracks
-// ChatGPT errors). For now it defaults to 1 so you can test the pipeline.
-const ERRORS_THIS_WEEK = Number(process.env.ERROR_COUNT || 1);
+const LOG_FILE = "./outage-log.json";
+const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+
+function countRecentOutages() {
+  if (!fs.existsSync(LOG_FILE)) return 0;
+  const log = JSON.parse(fs.readFileSync(LOG_FILE, "utf8"));
+  const cutoff = Date.now() - ONE_WEEK_MS;
+  return log.incidents.filter((i) => new Date(i.start).getTime() >= cutoff).length;
+}
 
 async function main() {
-  console.log(`Burning tokens for ${ERRORS_THIS_WEEK} error(s) this week...`);
-  await burnFromTreasury(ERRORS_THIS_WEEK);
+  const count = countRecentOutages();
+  console.log(`Found ${count} ChatGPT outage(s) in the last 7 days.`);
+
+  if (count === 0) {
+    console.log("Nothing to burn this week.");
+    return;
+  }
+
+  await burnFromTreasury(count);
   console.log("Weekly burn complete!");
 }
 
