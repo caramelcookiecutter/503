@@ -26,7 +26,7 @@ $503 is live and trading on Raydium on Solana mainnet. Liquidity and holder coun
 | Chain              | Solana                                                     |
 | Standard           | SPL Token                                                  |
 | Initial supply     | 1,000,000,000                                              |
-| Decimals           | 8 |
+| Decimals           | **[CONFIRM ON-CHAIN — not yet verified, see note below]** |
 | Mint address       | `GEPa9WUhjfthcuXy7kjwpS3bn9YcpSpdXxkd1nt31Lgc`             |
 | Mint authority     | Held by the treasury wallet                                |
 | Freeze authority   | Held by the treasury wallet                                |
