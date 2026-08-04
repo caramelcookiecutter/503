@@ -1,6 +1,6 @@
 # $503 Whitepaper
 
-**Status:** v0.4 — tiered burn system deployed and confirmed running
+**Status:** v0.4.1 — tiered burn system deployed and confirmed running
 **Last updated:** August 2026
 **Network:** Solana
 
@@ -20,23 +20,26 @@ $503 is live and trading on Raydium on Solana mainnet. Liquidity and holder coun
 
 ## 2. Token Summary
 
-| Parameter | Value |
-|---|---|
-| Name | $503 |
-| Chain | Solana |
-| Standard | SPL Token |
-| Initial supply | 1,000,000,000 |
-| Mint address | `GEPa9WUhjfthcuXy7kjwpS3bn9YcpSpdXxkd1nt31Lgc` |
-| Mint authority | Held by the treasury wallet |
-| Freeze authority | Held by the treasury wallet |
+| Parameter         | Value                                                    |
+| ------------------ | --------------------------------------------------------- |
+| Name               | $503                                                       |
+| Chain              | Solana                                                     |
+| Standard           | SPL Token                                                  |
+| Initial supply     | 1,000,000,000                                              |
+| Decimals           | **[CONFIRM ON-CHAIN — not yet verified, see note below]** |
+| Mint address       | `GEPa9WUhjfthcuXy7kjwpS3bn9YcpSpdXxkd1nt31Lgc`             |
+| Mint authority     | Held by the treasury wallet                                |
+| Freeze authority   | Held by the treasury wallet                                |
+
+> **Verification note (August 2026):** the initial supply figure above (1,000,000,000) has been cross-checked against live pool data — fully diluted valuation divided by live price on the $503/SOL Raydium pool — and confirmed. An earlier internal figure of 503,000,000, used during pre-launch planning, is superseded and should not be referenced going forward. Decimal places have not yet been independently confirmed against the mint account and should be pulled directly from a block explorer before being cited in any external listing (e.g. CoinGecko, CoinMarketCap) — do not carry forward the un-verified "6 decimals" assumption from earlier design docs without checking it first.
 
 ### Allocation
 
-| Allocation | % of Supply | Notes |
-|---|---|---|
-| Founder | 20% | Not subject to the burn mechanic |
-| Treasury | 30% | Subject to weekly burns |
-| Traders / liquidity | 50% | Circulating / LP |
+| Allocation          | % of Supply | Notes                            |
+| -------------------- | ------------ | ---------------------------------- |
+| Founder              | 20%          | Not subject to the burn mechanic |
+| Treasury              | 30%          | Subject to weekly burns          |
+| Traders / liquidity   | 50%          | Circulating / LP                 |
 
 **Note on mint authority:** because the treasury wallet retains mint authority, total supply is not cryptographically fixed the way a "burned mint authority" token's supply would be — the treasury *could* mint additional tokens. The current design does not do this, but it is a trust assumption rather than a contract-enforced guarantee. The same applies to freeze authority: the treasury is technically able to freeze individual holder accounts. Anyone evaluating the token should weigh this centralization point directly.
 
@@ -49,19 +52,22 @@ Two independent burn triggers exist in the codebase.
 **Weekly tiered burn — the live mechanism, deployed and confirmed running:**
 
 1. **Watching** — a script checks the status pages of ChatGPT, Claude, Gemini, and Perplexity every 15 minutes for reported incidents, writing results to an outage log.
+
 2. **Measuring** — when the weekly script runs, every incident in the trailing 7 days is measured by duration: time between its logged start and end. An incident with no recorded end is treated as ongoing through the moment the script runs.
+
 3. **Tiering** — each incident's burn is calculated tax-bracket style across four escalating per-second rates:
 
-   | Tier | Duration | Rate (tokens/sec) |
-   |---|---|---|
-   | 1 | 0–15 min | 0.3565 |
-   | 2 | 15–60 min | 0.7130 |
-   | 3 | 60–180 min | 1.4260 |
-   | 4 | 180 min+ | 2.8520 |
+    | Tier | Duration   | Rate (tokens/sec) |
+    | ---- | ---------- | ------------------ |
+    | 1    | 0–15 min   | 0.3565              |
+    | 2    | 15–60 min  | 0.7130              |
+    | 3    | 60–180 min | 1.4260              |
+    | 4    | 180 min+   | 2.8520              |
 
-   Rates step up in a strict 1:2:4:8 ratio. Each bracket only charges for the portion of an outage's duration that falls inside it — a 20-minute outage is charged 15 minutes at tier 1 plus 5 minutes at tier 2, not 20 minutes at tier 2.
+    Rates step up in a strict 1:2:4:8 ratio. Each bracket only charges for the portion of an outage's duration that falls inside it — a 20-minute outage is charged 15 minutes at tier 1 plus 5 minutes at tier 2, not 20 minutes at tier 2.
 
 4. **Repeat-outage penalty** — for each provider, every distinct outage-day within the trailing 7-day window beyond the first adds a 25% penalty to that day's incidents, capped at a 2x multiplier. Day boundaries for this purpose are anchored to a fixed reference timestamp — the calculated astronomical sunrise in Philadelphia, PA on October 31, 2008 (7:29:02 AM EDT), the Bitcoin whitepaper's publication date — rather than UTC midnight.
+
 5. **Burning** — all incidents' post-multiplier amounts are summed and burned from the treasury in a single transaction. All math is done as integer base-unit arithmetic rather than floating point, to avoid rounding drift.
 
 **Reactive per-call burn — present in the code, not confirmed active:**
@@ -112,6 +118,7 @@ If the reactive per-call burn path is ever wired into a live process, note it op
 - Evaluate moving burn/mint/freeze authority into an Anchor program controlled by a PDA, removing reliance on a hot wallet.
 - Run a backtest against the live tiered logic using accumulated real outage data.
 - Continue public distribution of the liquidity/trading allocation.
+- Confirm and publish the on-chain decimal precision for the mint (see Section 2 note).
 
 ---
 
@@ -130,12 +137,12 @@ If the reactive per-call burn path is ever wired into a live process, note it op
 
 ## 9. Links
 
-- Website: https://caramelcookiecutter.github.io/503/
+- Website: <https://caramelcookiecutter.github.io/503/>
 - Mint / token: `GEPa9WUhjfthcuXy7kjwpS3bn9YcpSpdXxkd1nt31Lgc`
-- Solscan: https://solscan.io/token/GEPa9WUhjfthcuXy7kjwpS3bn9YcpSpdXxkd1nt31Lgc
-- Trade on Raydium: https://raydium.io/swap/?inputMint=sol&outputMint=GEPa9WUhjfthcuXy7kjwpS3bn9YcpSpdXxkd1nt31Lgc
-- Live chart / market data: https://dexscreener.com/solana/6kd1kwncfebo2xwlccucwvcxehwvqii14dx4aewjskfm
-- Source code: https://github.com/caramelcookiecutter/503
+- Solscan: <https://solscan.io/token/GEPa9WUhjfthcuXy7kjwpS3bn9YcpSpdXxkd1nt31Lgc>
+- Trade on Raydium: <https://raydium.io/swap/?inputMint=sol&outputMint=GEPa9WUhjfthcuXy7kjwpS3bn9YcpSpdXxkd1nt31Lgc>
+- Live chart / market data: <https://dexscreener.com/solana/6kd1kwncfebo2xwlccucwvcxehwvqii14dx4aewjskfm>
+- Source code: <https://github.com/caramelcookiecutter/503>
 
 ---
 
