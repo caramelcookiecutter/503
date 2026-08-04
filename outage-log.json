@@ -4,8 +4,14 @@
     "incidents": []
   },
   "claude": {
-    "lastIndicator": "none",
-    "incidents": []
+    "lastIndicator": "minor",
+    "incidents": [
+      {
+        "start": "2026-08-04T06:16:58.601Z",
+        "end": null,
+        "indicator": "minor"
+      }
+    ]
   },
   "perplexity": {
     "lastIndicator": "none",
