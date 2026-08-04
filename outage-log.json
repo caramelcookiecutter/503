@@ -1,7 +1,13 @@
 {
   "chatgpt": {
-    "lastIndicator": "none",
-    "incidents": []
+    "lastIndicator": "minor",
+    "incidents": [
+      {
+        "start": "2026-08-04T13:14:53.546Z",
+        "end": null,
+        "indicator": "minor"
+      }
+    ]
   },
   "claude": {
     "lastIndicator": "none",
