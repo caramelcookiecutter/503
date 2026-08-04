@@ -4,7 +4,7 @@ import fs from "fs";
 
 const CLUSTER = "mainnet-beta"; // must match create-token.js
 
-const { mint, treasuryAta, decimals } = JSON.parse(
+export const { mint, treasuryAta, decimals } = JSON.parse(
   fs.readFileSync("./token-config.json", "utf8")
 );
 
@@ -36,6 +36,31 @@ export async function burnFromTreasury(amount) {
   );
 
   console.log(`Burned ${amount} tokens. Signature: ${signature}`);
+  return signature;
+}
+
+/**
+ * Burns a raw base-unit amount (already scaled by `decimals`) from the
+ * treasury's own token account. Use this when the amount was computed with
+ * fixed-point integer math elsewhere — e.g. the tiered weekly burn, where
+ * per-second rates produce fractional token amounts that `burnFromTreasury`
+ * above can't accept (it only takes whole-token integers).
+ */
+export async function burnRawFromTreasury(rawAmount) {
+  const signature = await burnChecked(
+    connection,
+    treasury,                     // fee payer
+    new PublicKey(treasuryAta),   // account holding the tokens
+    new PublicKey(mint),
+    treasury,                     // owner of the token account, signs the burn
+    rawAmount,                    // must already be a BigInt in base units
+    decimals,
+    [],
+    { commitment: "confirmed" },
+    TOKEN_PROGRAM_ID
+  );
+
+  console.log(`Burned ${rawAmount} raw base units. Signature: ${signature}`);
   return signature;
 }
 
