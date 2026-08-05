@@ -1,16 +1,21 @@
 {
   "chatgpt": {
-    "lastIndicator": "none",
+    "lastIndicator": "minor",
     "incidents": [
       {
         "start": "2026-08-04T13:14:53.546Z",
         "end": "2026-08-04T19:11:24.321Z",
         "indicator": "minor"
+      },
+      {
+        "start": "2026-08-05T15:51:24.075Z",
+        "end": null,
+        "indicator": "minor"
       }
     ]
   },
   "claude": {
-    "lastIndicator": "minor",
+    "lastIndicator": "none",
     "incidents": [
       {
         "start": "2026-08-04T06:16:58.601Z",
@@ -19,7 +24,7 @@
       },
       {
         "start": "2026-08-05T08:08:51.737Z",
-        "end": null,
+        "end": "2026-08-05T15:51:24.139Z",
         "indicator": "minor"
       }
     ]
