@@ -1,6 +1,6 @@
 {
   "chatgpt": {
-    "lastIndicator": "minor",
+    "lastIndicator": "none",
     "incidents": [
       {
         "start": "2026-08-04T13:14:53.546Z",
@@ -24,7 +24,7 @@
       },
       {
         "start": "2026-08-11T13:42:37.334Z",
-        "end": null,
+        "end": "2026-08-11T15:41:57.274Z",
         "indicator": "minor"
       }
     ]
