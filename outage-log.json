@@ -50,8 +50,14 @@
     ]
   },
   "perplexity": {
-    "lastIndicator": "none",
-    "incidents": []
+    "lastIndicator": "down",
+    "incidents": [
+      {
+        "start": "2026-08-13T01:26:49.338Z",
+        "end": null,
+        "indicator": "down"
+      }
+    ]
   },
   "gemini": {
     "incidents": []
