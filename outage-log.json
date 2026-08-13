@@ -50,11 +50,11 @@
     ]
   },
   "perplexity": {
-    "lastIndicator": "down",
+    "lastIndicator": "none",
     "incidents": [
       {
         "start": "2026-08-13T01:26:49.338Z",
-        "end": null,
+        "end": "2026-08-13T03:40:56.366Z",
         "indicator": "down"
       }
     ]
