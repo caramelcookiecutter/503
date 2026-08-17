@@ -93,11 +93,16 @@
     "incidents": []
   },
   "grok": {
-    "lastGuid": "INC548339c6",
+    "lastGuid": "INC5a3245c3",
     "incidents": [
       {
         "start": "2026-08-03T11:00:19.342Z",
         "end": "2026-08-03T11:00:19.342Z",
+        "note": "RSS update detected (imprecise)"
+      },
+      {
+        "start": "2026-08-17T22:18:38.486Z",
+        "end": "2026-08-17T22:18:38.486Z",
         "note": "RSS update detected (imprecise)"
       }
     ]
