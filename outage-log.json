@@ -1,6 +1,6 @@
 {
   "chatgpt": {
-    "lastIndicator": "none",
+    "lastIndicator": "minor",
     "incidents": [
       {
         "start": "2026-08-04T13:14:53.546Z",
@@ -61,11 +61,16 @@
         "start": "2026-09-01T00:56:56.530Z",
         "end": "2026-09-01T21:32:32.771Z",
         "indicator": "minor"
+      },
+      {
+        "start": "2026-09-03T14:59:48.667Z",
+        "end": null,
+        "indicator": "minor"
       }
     ]
   },
   "claude": {
-    "lastIndicator": "none",
+    "lastIndicator": "minor",
     "incidents": [
       {
         "start": "2026-08-04T06:16:58.601Z",
@@ -131,6 +136,11 @@
         "start": "2026-09-01T23:33:32.648Z",
         "end": "2026-09-02T06:07:46.237Z",
         "indicator": "minor"
+      },
+      {
+        "start": "2026-09-03T14:59:48.700Z",
+        "end": null,
+        "indicator": "minor"
       }
     ]
   },
@@ -148,7 +158,7 @@
     "incidents": []
   },
   "grok": {
-    "lastGuid": "INC5a3245c3",
+    "lastGuid": "INCc33a8af",
     "incidents": [
       {
         "start": "2026-08-03T11:00:19.342Z",
@@ -158,6 +168,11 @@
       {
         "start": "2026-08-17T22:18:38.486Z",
         "end": "2026-08-17T22:18:38.486Z",
+        "note": "RSS update detected (imprecise)"
+      },
+      {
+        "start": "2026-09-03T14:59:48.999Z",
+        "end": "2026-09-03T14:59:48.999Z",
         "note": "RSS update detected (imprecise)"
       }
     ]
