@@ -95,7 +95,7 @@
     ]
   },
   "claude": {
-    "lastIndicator": "none",
+    "lastIndicator": "minor",
     "incidents": [
       {
         "start": "2026-08-04T06:16:58.601Z",
@@ -171,6 +171,11 @@
         "start": "2026-09-10T17:14:56.604Z",
         "end": "2026-09-14T20:34:52.439Z",
         "indicator": "minor"
+      },
+      {
+        "start": "2026-09-22T01:42:00.184Z",
+        "end": null,
+        "indicator": "minor"
       }
     ]
   },
@@ -188,7 +193,7 @@
     "incidents": []
   },
   "grok": {
-    "lastGuid": "INC698e276c",
+    "lastGuid": "INC578e0bc8",
     "incidents": [
       {
         "start": "2026-08-03T11:00:19.342Z",
@@ -208,6 +213,11 @@
       {
         "start": "2026-09-10T09:20:44.789Z",
         "end": "2026-09-10T09:20:44.789Z",
+        "note": "RSS update detected (imprecise)"
+      },
+      {
+        "start": "2026-09-22T01:42:00.810Z",
+        "end": "2026-09-22T01:42:00.810Z",
         "note": "RSS update detected (imprecise)"
       }
     ]
