@@ -150,7 +150,7 @@
     ]
   },
   "claude": {
-    "lastIndicator": "none",
+    "lastIndicator": "minor",
     "incidents": [
       {
         "start": "2026-08-04T06:16:58.601Z",
@@ -240,6 +240,11 @@
       {
         "start": "2026-10-22T05:41:13.344Z",
         "end": "2026-10-22T10:39:05.202Z",
+        "indicator": "minor"
+      },
+      {
+        "start": "2026-10-28T18:37:11.897Z",
+        "end": null,
         "indicator": "minor"
       }
     ]
