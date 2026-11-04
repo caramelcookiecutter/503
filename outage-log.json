@@ -273,7 +273,7 @@
     "incidents": []
   },
   "grok": {
-    "lastGuid": "ps_dece7cc03ecef152",
+    "lastGuid": "ps_b88ca87004b1d3b9",
     "incidents": [
       {
         "start": "2026-08-03T11:00:19.342Z",
@@ -368,6 +368,11 @@
       {
         "start": "2026-11-02T16:45:36.667Z",
         "end": "2026-11-02T16:45:36.667Z",
+        "note": "RSS update detected (imprecise)"
+      },
+      {
+        "start": "2026-11-04T00:20:44.308Z",
+        "end": "2026-11-04T00:20:44.308Z",
         "note": "RSS update detected (imprecise)"
       }
     ]
