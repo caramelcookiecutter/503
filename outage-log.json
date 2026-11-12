@@ -1,6 +1,6 @@
 {
   "chatgpt": {
-    "lastIndicator": "none",
+    "lastIndicator": "minor",
     "incidents": [
       {
         "start": "2026-08-04T13:14:53.546Z",
@@ -171,6 +171,11 @@
         "start": "2026-11-12T02:25:43.538Z",
         "end": "2026-11-12T10:01:57.338Z",
         "indicator": "critical"
+      },
+      {
+        "start": "2026-11-12T23:44:18.253Z",
+        "end": null,
+        "indicator": "minor"
       }
     ]
   },
@@ -298,7 +303,7 @@
     "incidents": []
   },
   "grok": {
-    "lastGuid": "ps_bf5495b2ac4634a8",
+    "lastGuid": "ps_94275750e294382d",
     "incidents": [
       {
         "start": "2026-08-03T11:00:19.342Z",
@@ -423,6 +428,11 @@
       {
         "start": "2026-11-10T19:13:26.283Z",
         "end": "2026-11-10T19:13:26.283Z",
+        "note": "RSS update detected (imprecise)"
+      },
+      {
+        "start": "2026-11-12T23:44:19.095Z",
+        "end": "2026-11-12T23:44:19.095Z",
         "note": "RSS update detected (imprecise)"
       }
     ]
